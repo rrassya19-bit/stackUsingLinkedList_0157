@@ -35,10 +35,12 @@ public:
         if (isEmpty())
         {
             cout << "Stack is empty." << endl;
+            return; // ditambah agar tidak crash
         }
         Node *temp = top;
         top = top->next;
         cout << "Popped value: " << temp->data << endl;
+        delete temp; // ditambah agar tidak memory leak
     }
     void peek()
     {
@@ -66,7 +68,7 @@ public:
 int main()
 {
     stack stack;
-    int choice = 0; // diubah dari != 5 ke != 4
+    int choice = 0;
     int value;
     while (choice != 4)
     {
