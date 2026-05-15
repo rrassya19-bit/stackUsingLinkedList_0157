@@ -35,12 +35,12 @@ public:
         if (isEmpty())
         {
             cout << "Stack is empty." << endl;
-            return; // ditambah agar tidak crash
+            return;
         }
         Node *temp = top;
         top = top->next;
         cout << "Popped value: " << temp->data << endl;
-        delete temp; // ditambah agar tidak memory leak
+        delete temp;
     }
     void peek()
     {
@@ -102,7 +102,7 @@ int main()
             }
             else
             {
-                cout << "Stack is empty.No top value." << endl;
+                cout << "Stack is empty. No top value." << endl;
             }
             break;
         case 4:
