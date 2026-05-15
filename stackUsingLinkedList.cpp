@@ -12,15 +12,18 @@ public:
     }
 };
 
+// stack class
 class stack
 {
 private:
     Node *top;
+
 public:
     stack()
     {
         top = NULL;
     }
+
     int push(int value)
     {
         Node *newNode = new Node();
@@ -30,24 +33,26 @@ public:
         cout << "Push value: " << value << endl;
         return value;
     }
+
     void pop()
     {
         if (isEmpty())
         {
             cout << "Stack is empty." << endl;
-            return;
         }
+        
         Node *temp = top;
         top = top->next;
         cout << "Popped value: " << temp->data << endl;
-        delete temp;
     }
+
     void peek()
     {
         if (top == NULL)
         {
             cout << "List is empty." << endl;
         }
+
         else
         {
             Node *current = top;
@@ -59,6 +64,7 @@ public:
             cout << endl;
         }
     }
+
     bool isEmpty()
     {
         return top == NULL;
@@ -70,21 +76,23 @@ int main()
     stack stack;
     int choice = 0;
     int value;
-    while (choice != 4)
+    while (choice != 5)
     {
-        cout << "1.push\n";
-        cout << "2.pop\n";
-        cout << "3.peek\n";
-        cout << "4.Exit\n";
-        cout << "Enter your choice: ";
-        cin >> choice;
-        switch (choice)
+    cout << "1.push\n";
+    cout << "2.pop\n";
+    cout << "3.peek\n";
+    cout << "4.Exit\n";
+    cout << "Enter your choice: ";
+    cin >> choice;
+
+    switch (choice)
         {
         case 1:
             cout << "Enter the value to push: ";
             cin >> value;
             stack.push(value);
             break;
+
         case 2:
             if (!stack.isEmpty())
             {
@@ -95,6 +103,7 @@ int main()
                 cout << "Stack is empty. Cannot pop." << endl;
             }
             break;
+
         case 3:
             if (!stack.isEmpty())
             {
@@ -102,15 +111,17 @@ int main()
             }
             else
             {
-                cout << "Stack is empty. No top value." << endl;
+                cout << "Stack is empty.No top value." << endl;
             }
             break;
+
         case 4:
             cout << "Exiting program." << endl;
             break;
         default:
             cout << "invalid choice. Try again." << endl;
             break;
+
         }
         cout << endl;
     }
